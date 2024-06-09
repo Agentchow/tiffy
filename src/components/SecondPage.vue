@@ -71,6 +71,8 @@ html, body {
   justify-content: flex-start;
   padding: 20px;
   min-height: 100vh; /* Ensure it takes full viewport height */
+  overflow: visible; /* Ensure content is not clipped */
+  padding-bottom: 100px
 }
 
 .message-container {
