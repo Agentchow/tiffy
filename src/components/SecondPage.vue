@@ -61,7 +61,7 @@ export default defineComponent({
 
 html, body {
   height: 100%;
-  overflow: scroll ; /* Ensure scrolling is enabled */
+  overflow: scroll; /* Ensure scrolling is enabled */
 }
 
 .second-page {
@@ -93,7 +93,7 @@ html, body {
   display: inline-block;
   margin-top: 5vh; /* Raise the message higher */
   text-align: center;
-  opacity: 0;
+  opacity: 1;
   transition: opacity 1s ease;
 }
 
