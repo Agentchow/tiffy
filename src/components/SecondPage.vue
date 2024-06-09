@@ -3,15 +3,11 @@
     <h1 class="message-container">
       <span v-for="(char, index) in message" :key="index" :style="{ animationDelay: `${index * 0.05}s` }" class="message-char">{{ char }}</span>
     </h1>
-    <button class="modern-button" @click="startFadeIn">Show Doggies</button>
+    <button class="modern-button" @click="startFadeIn">Show Doggies!</button>
     <div class="images-container">
       <img v-for="(dog, index) in dogs" :key="index" :src="dog" alt="Dog Image" :class="['image', { 'fade-in': imagesVisible[index] }]" :style="{ animationDelay: `${index * 1}s` }">
     </div>
-    <!-- <button class="modern-button" @click="showVideo" v-if="imagesVisible.every(visible => visible)">Show Video</button>
-    <video controls class="video" v-if="videoVisible">
-      <source :src="video" type="video/quicktime">
-      Your browser does not support the video tag.
-    </video> -->
+    <p class="message-container-1" v-if="imagesVisible.every(visible => visible)">I love you Tiffany</p>
   </div>
 </template>
 
@@ -22,7 +18,6 @@ import dog2 from '../assets/dog2.png';
 import dog3 from '../assets/dog3.png';
 import dog4 from '../assets/dog4.png';
 import dog5 from '../assets/dog5.png';
-import beanMov from '../assets/bean.mov'; // Ensure this path is correct
 
 export default defineComponent({
   name: 'SecondPage',
@@ -31,26 +26,23 @@ export default defineComponent({
       message: "I know things have been tough, so I just wanted to let you know I'll always care for you",
       dogs: [dog1, dog2, dog3, dog4, dog5],
       imagesVisible: [false, false, false, false, false],
-      video: beanMov,
-      videoVisible: true
+      messageVisible: false
     });
 
     const startFadeIn = () => {
       state.dogs.forEach((_, index) => {
         setTimeout(() => {
           state.imagesVisible[index] = true;
+          if (index === state.dogs.length - 1) {
+            state.messageVisible = true;
+          }
         }, index * 1000); // Adjust delay as needed
       });
     };
 
-    const showVideo = () => {
-      state.videoVisible = true;
-    };
-
     return {
       ...state,
-      startFadeIn,
-      showVideo
+      startFadeIn
     };
   }
 });
@@ -76,12 +68,24 @@ export default defineComponent({
 
 .message-container {
   font-family: 'Garamond', serif; /* Cursive font */
-  font-size: 24px;
+  font-size: 6vw; /* Responsive font size */
   color: #333;
   margin-bottom: 20px; /* Space between the message and the image */
-  padding: 0 20px; /* Optional: Add padding for better readability on smaller screens */
+  padding: 0 5vw; /* Optional: Add padding for better readability on smaller screens */
   display: inline-block;
-  margin-top: 40px; /* Raise the message higher */
+  margin-top: 5vh; /* Raise the message higher */
+  text-align: center;
+}
+
+.message-container-1 {
+  font-family: 'Garamond', serif; /* Cursive font */
+  font-size: 8vw; /* Responsive font size */
+  color: #333;
+  margin-bottom: 20px; /* Space between the message and the image */
+  padding: 0 5vw; /* Optional: Add padding for better readability on smaller screens */
+  display: inline-block;
+  margin-top: 5vh; /* Raise the message higher */
+  text-align: center;
 }
 
 .message-char {
@@ -102,7 +106,7 @@ export default defineComponent({
   color: #ffffff;
   border: none;
   border-radius: 5px;
-  font-size: 16px;
+  font-size: 4vw; /* Responsive font size */
   cursor: pointer;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
@@ -125,13 +129,14 @@ export default defineComponent({
 
 .images-container {
   display: flex;
-  flex-direction: row;
+  flex-wrap: wrap; /* Make images wrap on smaller screens */
+  justify-content: center;
   gap: 20px;
   margin-top: 20px; /* Raise the images higher */
 }
 
 .image {
-  max-width: 200px; /* Adjust the size as needed */
+  max-width: 30vw; /* Adjust the size for responsiveness */
   height: auto;
   opacity: 0;
   transition: opacity 1s ease;
@@ -141,18 +146,18 @@ export default defineComponent({
   opacity: 1;
 }
 
-.video {
-  margin-top: 20px;
-  max-width: 100%;
-}
-
-@keyframes fadeInImage {
-  from {
-    opacity: 0;
+@media (min-width: 768px) {
+  .message-container {
+    font-size: 2rem;
   }
-  to {
-    opacity: 1;
+  .message-container-1 {
+    font-size: 3rem;
+  }
+  .modern-button {
+    font-size: 1rem;
+  }
+  .image {
+    max-width: 200px;
   }
 }
 </style>
-
