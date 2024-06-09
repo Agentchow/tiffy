@@ -54,14 +54,14 @@
   box-sizing: border-box;
 }
 
-:root {
-  --color-bg: linear-gradient(to top, #010329, #000005);
-  --color-glass: linear-gradient(to left, #441414, #1a9092);
-  --color-water: linear-gradient(to left, #142544, #1b6d6e);
-}
+/* :root {
+  --color-bg: linear-gradient(to top,#010329,#000005);
+  --color-glass: linear-gradient(to left,#142544,#1a9092);
+  --color-water: linear-gradient(to left,#142544,#1b6d6e);;
+} */
 
 body {
-  background-image: linear-gradient(to top, #010329, #000005);
+  background-image: linear-gradient(to top,#010329,#000005);;
   min-height: 100vh;
   display: flex;
   justify-content: center;
@@ -76,7 +76,7 @@ body {
 .flower__glass {
   width: 20vmin;
   height: 30vmin;
-  background-image: linear-gradient(to left, #441414, #1a9092);
+  background-image: linear-gradient(to left,#142544,#1a9092);
   clip-path: polygon(0 0, 100% 0, 85% 100%, 15% 100%);
   opacity: 0.8;
   position: relative;
@@ -97,7 +97,7 @@ body {
   position: absolute;
   bottom: 0;
   left: 0;
-  background-image: linear-gradient(to left, #142544, #1b6d6e);;
+  background-image: linear-gradient(to left,#142544,#1b6d6e);
   width: 100%;
   height: 15vmin;
 }
