@@ -1,3 +1,11 @@
+<script lang="ts">
+import { defineComponent } from 'vue';
+
+export default defineComponent({
+  name: 'FlowerAnimation',
+});
+</script>
+
 <template>
     <div class="flower">
       <div class="f-wrapper">
@@ -390,10 +398,3 @@
     }
   }
   </style>
-  
-  <script>
-  export default {
-    name: 'FlowerAnimation',
-  };
-  </script>
-  
