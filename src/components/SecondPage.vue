@@ -34,6 +34,7 @@ export default defineComponent({
         setTimeout(() => {
           state.imagesVisible[index] = true;
           if (index === state.dogs.length - 1) {
+            
             state.messageVisible = true;
           }
         }, index * 1000); // Adjust delay as needed
@@ -81,11 +82,17 @@ export default defineComponent({
   font-family: 'Garamond', serif; /* Cursive font */
   font-size: 8vw; /* Responsive font size */
   color: #333;
-  margin-bottom: 20px; /* Space between the message and the image */
+  margin-bottom: 20px;
   padding: 0 5vw; /* Optional: Add padding for better readability on smaller screens */
   display: inline-block;
   margin-top: 5vh; /* Raise the message higher */
   text-align: center;
+  opacity: 1;
+  transition: opacity 1s ease;
+}
+
+.message-container-1.fade-in-message {
+  opacity: 1;
 }
 
 .message-char {
@@ -131,12 +138,12 @@ export default defineComponent({
   display: flex;
   flex-wrap: wrap; /* Make images wrap on smaller screens */
   justify-content: center;
-  gap: 20px;
-  margin-top: 20px; /* Raise the images higher */
+  gap: 10px;
+  margin-top: 20px;
 }
 
 .image {
-  max-width: 30vw; /* Adjust the size for responsiveness */
+  max-width: 80vw; /* Adjust the size for responsiveness */
   height: auto;
   opacity: 0;
   transition: opacity 1s ease;
