@@ -7,7 +7,7 @@
       <FlowerAnimation />
     </div>
     <button class="modern-button" @click="goToSecondPage">Doggy!</button>
-    <img :src="imagePng" alt="PNG Image" class="image">
+    <img :src="IMG_6716" alt="PNG Image" class="image">
   </div>
 </template>
 
@@ -15,7 +15,7 @@
 import { defineComponent } from 'vue';
 import { useRouter } from 'vue-router';
 import FlowerAnimation from './FlowerAnimation.vue';
-import imagePng from '../assets/IMG_3180.png';  // Adjust the path if necessary
+import IMG_6716 from '../assets/IMG_3180.png';  // Adjust the path if necessary
 
 export default defineComponent({
   name: 'Home',
@@ -34,7 +34,7 @@ export default defineComponent({
     return {
       goToSecondPage,
       message,
-      imagePng
+      IMG_6716
     };
   }
 });
