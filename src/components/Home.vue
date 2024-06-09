@@ -1,11 +1,14 @@
-<!-- src/components/Home.vue -->
 <template>
   <div class="home-container">
-    <FlowerAnimation />
+    <h1 class="message-container">
+      <span v-for="(char, index) in message" :key="index" :style="{ animationDelay: `${index * 0.1}s` }" class="message-char">{{ char }}</span>
+    </h1>
+    <div class="flower-animation-container">
+      <FlowerAnimation />
+    </div>
     <button class="modern-button" @click="goToSecondPage">Go to Second Page</button>
   </div>
 </template>
-
 
 <script lang="ts">
 import { defineComponent } from 'vue';
@@ -24,30 +27,74 @@ export default defineComponent({
       router.push({ name: 'SecondPage' });
     };
 
+    const message = "For Tiffany Nguyen";
+
     return {
-      goToSecondPage
+      goToSecondPage,
+      message
     };
   }
 });
 </script>
 
 <style scoped>
+*,
+*::after,
+*::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --color-bg: #ffb6c1;
+  --color-button-bg: #6200ea;
+  --color-button-hover-bg: #3700b3;
+  --color-button-text: #ffffff;
+  --color-message: #333;
+  --font-family: 'Pacifico', cursive; /* Cursive font */
+}
+
 .home-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 120vh;
-  position: relative;
-  background-color: #ffb6c1; /* Adjust background color as needed */
-  margin-top: 50px; /* Adjust this value to lower the content */
+  height: 100vh;
+  background-color: var(--color-bg); /* Adjust background color as needed */
+  padding-top: 10vh; /* Adjust this value to lower the content */
+  text-align: center;
+}
+
+.message-container {
+  font-family:  cursive;;
+  font-size: 24px;
+  color: var(--color-message);
+  margin-bottom: 260px; /* Space between the message and the flower animation */
+  padding: 0 20px; /* Optional: Add padding for better readability on smaller screens */
+  display: inline-block;
+}
+
+.message-char {
+  opacity: 0;
+  animation: fadeIn 0.3s forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+.flower-animation-container {
+  transform: scale(0.6); /* Scale down the FlowerAnimation component */
 }
 
 .modern-button {
   padding: 10px 20px;
   margin-top: 20px; /* Adjust to create space between the button and the flower */
-  background-color: #ffb6c1;
-  color: #ffffff;
+  background-color: var(--color-button-bg);
+  color: var(--color-button-text);
   border: none;
   border-radius: 5px;
   font-size: 16px;
@@ -58,13 +105,13 @@ export default defineComponent({
 }
 
 .modern-button:hover {
-  background-color: #3700b3;
+  background-color: var(--color-button-hover-bg);
   box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
   transform: translateY(-2px);
 }
 
 .modern-button:active {
-  background-color: #3700b3;
+  background-color: var(--color-button-hover-bg);
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   transform: translateY(0);
 }
