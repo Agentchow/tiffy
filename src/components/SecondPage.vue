@@ -93,7 +93,7 @@ html, body {
   display: inline-block;
   margin-top: 5vh; /* Raise the message higher */
   text-align: center;
-  opacity: 1;
+  opacity: 0;
   transition: opacity 1s ease;
 }
 
