@@ -23,7 +23,7 @@ export default defineComponent({
   name: 'SecondPage',
   setup() {
     const state = reactive({
-      message: "I know things have been tough, so I just wanted to let you know I'll always care for you",
+      message: "I know things have been tough, so I just wanted to let you know you mean the world to me",
       dogs: [dog1, dog2, dog3, dog4, dog5],
       imagesVisible: [false, false, false, false, false],
       messageVisible: false
