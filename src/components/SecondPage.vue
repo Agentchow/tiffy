@@ -61,7 +61,7 @@ export default defineComponent({
 
 html, body {
   height: 100%;
-  overflow: auto; /* Ensure scrolling is enabled */
+  overflow: scroll ; /* Ensure scrolling is enabled */
 }
 
 .second-page {
