@@ -1,14 +1,15 @@
-import { createRouter, createWebHistory } from 'vue-router';
+// src/router/index.ts
+import { createRouter, createWebHashHistory } from 'vue-router';
 import Home from '../components/Home.vue';
 import SecondPage from '../components/SecondPage.vue';
 
 const routes = [
-  { path: '/', component: Home },
-  { path: '/second', component: SecondPage },
+  { path: '/', name: 'Home', component: Home },
+  { path: '/second', name: 'SecondPage', component: SecondPage },
 ];
 
 const router = createRouter({
-  history: createWebHistory(),
+  history: createWebHashHistory(),
   routes,
 });
 
